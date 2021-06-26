@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda | BRZ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <header>
+        <h2> Agenda - TO - DO LIST </h2>
+    </header>
+
+    <section>
+
+        <div class="formulario">
+            <input id="nome" type="text" name="nome" placeholder="Nome:" required >
+            <button id="btn" type="submit" gravar()>Gravar</button>
+
+            <div class="items">
+                <ul id="list">
+                    <li id="li" type="checkbox"> </li>
+
+                </ul>
+
+            </div>
+        </div>
+        
+    </section>
+
+</body>
+<script src="script.js">
+</script>
+
+</html>
+
+
+
+
+
+
+
+
+// css
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-size: 20px;
+
+}
+
+header{
+    padding: 20px;
+    text-align: center;
+}
+
+section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario{
+    padding: 30px;
+    background-color:rgb(10, 10, 10);
+    flex-wrap: wrap;
+
+}
+.formulario #nome{
+    
+    color: rgb(122, 122, 122);
+    border-style: none;
+    border-radius: 2px;
+    border-left: 6px solid rgb(20, 194, 87);
+    background-color: rgb(255, 255, 255);
+    border-width: 10px;
+    margin-bottom: 20px;
+    padding: 5px;
+    
+}
+.formulario ul li{
+    list-style-type: none;
+    background-color: rgb(10, 10, 10);
+    max-height: 300px;
+
+}
+
+.formulario li:hover{
+    background-color: rgb(14, 14, 14);
+    color: white;
+    border-left: 5px solid rgb(20, 194, 87);
+
+}
+.formulario button{
+font-size: 20px;
+padding: 5px;
+background-color: rgb(20, 194, 87);
+color: white;
+border: none;
+border-style: none;
+border-radius: 2px;
+}
+
+.items{
+    max-height: 300px;
+    overflow: auto;
+
+
+}
+
+
+
+//JAVASCRIPT js
+
+    onload = function () {
+
+            let li = document.getElementById("li");
+            let nome = document.getElementById("nome");
+            let botao = document.getElementById("btn");
+            let text = document.getElementsByTagName("h1")[1];
+            let ul = document.getElementById("list");
+
+            li.style.display = "none";
+
+            document.getElementById('nome').value='';
+
+            botao.addEventListener("click", gravar);
+
+        }
+
+        function gravar() {
+            
+            var lista = [0];
+
+            if(nome.value == 0)
+                alert("Esse campo não pode ficar vazio!")
+             else
+            for (var i = 0; i < lista.length; i++) {
+
+                lista[i] = nome.value;
+                   
+                var node = document.createElement("li");
+                var textnode = document.createTextNode(li.innerHTML = lista[i]);
+                node.appendChild(textnode);
+                document.getElementById("list").appendChild(node);
+
+                nome.value = "";
+
+            }
+        }
